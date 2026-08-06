@@ -206,6 +206,8 @@ function vitePluginStorageProxy(): Plugin {
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
+  // GitHub Pages project site: https://Vayala13.github.io/viviana-ayala-portfolio/
+  base: process.env.VITE_BASE || "/",
   plugins,
   resolve: {
     alias: {
