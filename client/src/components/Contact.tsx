@@ -3,7 +3,7 @@
  * Contact form + resume download + social links + topology footer.
  */
 import { useState } from "react";
-import { Send, Download, Github, Mail, MapPin } from "lucide-react";
+import { Send, Github, Mail, MapPin } from "lucide-react";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -13,7 +13,7 @@ export default function Contact() {
     e.preventDefault();
     const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
     const body = encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`);
-    window.open(`mailto:contact@marcuschen.dev?subject=${subject}&body=${body}`);
+    window.open(`mailto:viviayalaperez@gmail.com?subject=${subject}&body=${body}`);
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
   };
@@ -40,7 +40,7 @@ export default function Contact() {
             <div className="space-y-4 mb-8">
               <div className="flex items-center gap-3 text-[#64748b]">
                 <Mail size={14} className="text-[#FFB7C5]" />
-                <span className="font-mono text-sm">contact@marcuschen.dev</span>
+                <span className="font-mono text-sm">viviayalaperez@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-[#64748b]">
                 <MapPin size={14} className="text-[#FFB7C5]" />
@@ -54,11 +54,6 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-            <a href="https://github.com/Vayala13" target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FFB7C5]/10 border border-[#FFB7C5]/40 text-[#FFB7C5] font-mono text-sm rounded hover:bg-[#FFB7C5]/20 hover:border-[#FFB7C5] transition-all duration-150 btn-press">
-              <Download size={14} />
-              Download Resume
-            </a>
           </div>
 
           {/* Right: Form */}
@@ -93,9 +88,14 @@ export default function Contact() {
         {/* Bottom bar */}
         <div className="mt-16 pt-8 border-t border-[#1e2d3d] flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src="/manus-storage/logo-mc_701a4ec1.png" alt="MC" className="w-5 h-5 object-contain" />
+            <span
+              aria-hidden="true"
+              className="flex h-5 w-5 items-center justify-center rounded border border-[#FFB7C5]/40 bg-[#FFB7C5]/10 font-mono text-[8px] font-bold text-[#FFB7C5]"
+            >
+              VA
+            </span>
             <span className="font-mono text-xs text-[#475569]">
-              marcus<span className="text-[#FFB7C5]">.</span>chen — Systems that scale. Code that ships.
+              viviana<span className="text-[#FFB7C5]">.</span>ayala — Systems that scale. Code that ships.
             </span>
           </div>
           <span className="font-mono text-xs text-[#2d3f55]">

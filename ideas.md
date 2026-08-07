@@ -1,4 +1,4 @@
-# Marcus Chen Portfolio — Design Brief
+# Viviana Ayala Portfolio — Design Brief
 
 ## Three Stylistic Approaches
 

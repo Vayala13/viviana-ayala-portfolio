@@ -84,7 +84,7 @@ export default function Skills() {
       <div className="container relative">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
           <div>
-            <div className="section-label mb-3">03 / Skills</div>
+            <div className="section-label mb-3">04 / Skills</div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#e2e8f0] leading-tight">
               Proficiency Map
             </h2>

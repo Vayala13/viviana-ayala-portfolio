@@ -1,22 +1,23 @@
 /**
  * Navbar — Bioluminescent Grid Design
- * Slim top navigation with neon green logo mark and section links.
- * Becomes opaque on scroll.
+ * Slim top navigation with pink logo mark and section links.
  */
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Open Source", href: "#opensource" },
-  { label: "Writing", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Projects", href: "/projects" },
+  { label: "Certifications", href: "/certifications" },
+  { label: "Skills", href: "/skills" },
+  { label: "Open Source", href: "/open-source" },
+  { label: "Contact", href: "/contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -24,37 +25,39 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const solid = alwaysSolid || scrolled;
+
+  const linkClass = (href: string) =>
+    `font-mono text-xs tracking-widest uppercase transition-colors duration-150 ${
+      location === href ? "text-[#FFB7C5]" : "text-[#64748b] hover:text-[#FFB7C5]"
+    }`;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        solid
           ? "bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-[#1e2d3d]"
           : "bg-transparent"
       }`}
     >
       <div className="container flex items-center justify-between h-16">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <img
-            src="/manus-storage/logo-mc_701a4ec1.png"
-            alt="MC"
-            className="w-8 h-8 object-contain"
-          />
-          <span className="font-mono text-sm font-bold text-[#e2e8f0] group-hover:text-[#FFB7C5] transition-colors duration-150">
-            marcus<span className="text-[#FFB7C5]">.</span>chen
+        <Link href="/" className="flex items-center gap-2 group">
+          <span
+            aria-hidden="true"
+            className="flex h-8 w-8 items-center justify-center rounded border border-[#FFB7C5]/40 bg-[#FFB7C5]/10 font-mono text-xs font-bold text-[#FFB7C5]"
+          >
+            VA
           </span>
-        </a>
+          <span className="font-mono text-sm font-bold text-[#e2e8f0] group-hover:text-[#FFB7C5] transition-colors duration-150">
+            viviana<span className="text-[#FFB7C5]">.</span>ayala
+          </span>
+        </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-mono text-xs tracking-widest uppercase text-[#64748b] hover:text-[#FFB7C5] transition-colors duration-150"
-            >
+            <Link key={link.href} href={link.href} className={linkClass(link.href)}>
               {link.label}
-            </a>
+            </Link>
           ))}
           <a
             href="https://github.com/Vayala13"
@@ -69,7 +72,6 @@ export default function Navbar() {
           </a>
         </nav>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-[#64748b] hover:text-[#FFB7C5] transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -79,18 +81,17 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-[#1e2d3d] px-6 py-4 flex flex-col gap-4">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="font-mono text-xs tracking-widest uppercase text-[#64748b] hover:text-[#FFB7C5] transition-colors"
+              className={linkClass(link.href)}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
