@@ -58,7 +58,7 @@ function SkillBar({ name, level, animate }: { name: string; level: number; anima
     <div className="mb-4">
       <div className="flex justify-between items-center mb-1.5">
         <span className="font-mono text-sm text-[#e2e8f0]">{name}</span>
-        <span className="font-mono text-xs text-[#00ff88]">{level}%</span>
+        <span className="font-mono text-xs text-[#FFB7C5]">{level}%</span>
       </div>
       <div className="h-px bg-[#1e2d3d] rounded-full overflow-hidden">
         <div className="h-full skill-bar-fill rounded-full" style={{ width: animate ? `${level}%` : "0%" }} />
@@ -79,7 +79,7 @@ export default function Skills() {
   return (
     <section id="skills" ref={sectionRef} className="py-24 bg-[#0d1117] relative overflow-hidden">
       {/* Scanline texture */}
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,255,136,0.012) 3px, rgba(0,255,136,0.012) 4px)" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255, 183, 197,0.012) 3px, rgba(255, 183, 197,0.012) 4px)" }} />
 
       <div className="container relative">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
@@ -96,14 +96,14 @@ export default function Skills() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((cat) => (
-            <div key={cat.label} className="bg-[#111827] border border-[#1e2d3d] rounded-lg p-6 hover:border-[#00ff88]/20 transition-colors duration-200 relative">
+            <div key={cat.label} className="bg-[#111827] border border-[#1e2d3d] rounded-lg p-6 hover:border-[#FFB7C5]/20 transition-colors duration-200 relative">
               {/* Topology node */}
-              <div className="absolute -top-1.5 left-6 w-3 h-3 rounded-full bg-[#0d1117] border border-[#00ff88]/40 flex items-center justify-center">
-                <div className="w-1 h-1 rounded-full bg-[#00ff88]/60" />
+              <div className="absolute -top-1.5 left-6 w-3 h-3 rounded-full bg-[#0d1117] border border-[#FFB7C5]/40 flex items-center justify-center">
+                <div className="w-1 h-1 rounded-full bg-[#FFB7C5]/60" />
               </div>
               <div className="flex items-center gap-2 mb-5">
-                <div className="w-0.5 h-4 bg-[#00ff88] rounded-full" />
-                <span className="font-mono text-xs tracking-widest uppercase text-[#00ff88]">{cat.label}</span>
+                <div className="w-0.5 h-4 bg-[#FFB7C5] rounded-full" />
+                <span className="font-mono text-xs tracking-widest uppercase text-[#FFB7C5]">{cat.label}</span>
               </div>
               {cat.skills.map((skill) => (
                 <SkillBar key={skill.name} {...skill} animate={animated} />

@@ -73,7 +73,7 @@ const allTags = ["All", "AI", "Python", "TypeScript", "Data Science", "ML"];
 // Subtle topology node decoration
 function NodeAccent() {
   return (
-    <div className="absolute -left-3 top-6 w-1.5 h-1.5 rounded-full bg-[#00ff88]/40 ring-2 ring-[#00ff88]/10" />
+    <div className="absolute -left-3 top-6 w-1.5 h-1.5 rounded-full bg-[#FFB7C5]/40 ring-2 ring-[#FFB7C5]/10" />
   );
 }
 
@@ -84,7 +84,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-[#0a0a0f] relative overflow-hidden">
       {/* Subtle grid texture */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(rgba(0,255,136,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.5) 1px, transparent 1px)`, backgroundSize: "80px 80px" }} />
+      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(rgba(255, 183, 197,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 183, 197,0.5) 1px, transparent 1px)`, backgroundSize: "80px 80px" }} />
 
       <div className="container relative">
         {/* Asymmetric header: label left, title large */}
@@ -106,8 +106,8 @@ export default function Projects() {
             <button key={tag} onClick={() => setActiveTag(tag)}
               className={`px-3 py-1.5 font-mono text-xs tracking-wider rounded border transition-all duration-150 btn-press ${
                 activeTag === tag
-                  ? "bg-[#00ff88]/10 border-[#00ff88] text-[#00ff88]"
-                  : "bg-transparent border-[#1e2d3d] text-[#64748b] hover:border-[#00ff88]/40 hover:text-[#e2e8f0]"
+                  ? "bg-[#FFB7C5]/10 border-[#FFB7C5] text-[#FFB7C5]"
+                  : "bg-transparent border-[#1e2d3d] text-[#64748b] hover:border-[#FFB7C5]/40 hover:text-[#e2e8f0]"
               }`}
             >{tag}</button>
           ))}
@@ -121,18 +121,18 @@ export default function Projects() {
               <div className="flex items-start justify-between mb-4">
                 <div>
                   {project.featured && (
-                    <span className="px-2 py-0.5 bg-[#00ff88]/10 border border-[#00ff88]/30 text-[#00ff88] font-mono text-[10px] tracking-widest uppercase rounded">
+                    <span className="px-2 py-0.5 bg-[#FFB7C5]/10 border border-[#FFB7C5]/30 text-[#FFB7C5] font-mono text-[10px] tracking-widest uppercase rounded">
                       Featured
                     </span>
                   )}
                 </div>
                 <div className="flex items-center gap-3">
                   {project.demo && (
-                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-[#64748b] hover:text-[#00ff88] transition-colors" title="Live Demo">
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" className="text-[#64748b] hover:text-[#FFB7C5] transition-colors" title="Live Demo">
                       <ExternalLink size={15} />
                     </a>
                   )}
-                  <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-[#64748b] hover:text-[#00ff88] transition-colors" title="GitHub">
+                  <a href={project.repo} target="_blank" rel="noopener noreferrer" className="text-[#64748b] hover:text-[#FFB7C5] transition-colors" title="GitHub">
                     <Github size={15} />
                   </a>
                 </div>
@@ -156,7 +156,7 @@ export default function Projects() {
 
         <div className="mt-10 pl-4">
           <a href="https://github.com/Vayala13" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-sm text-[#64748b] hover:text-[#00ff88] transition-colors border-b border-transparent hover:border-[#00ff88]/40 pb-0.5">
+            className="inline-flex items-center gap-2 font-mono text-sm text-[#64748b] hover:text-[#FFB7C5] transition-colors border-b border-transparent hover:border-[#FFB7C5]/40 pb-0.5">
             All repositories on GitHub <ExternalLink size={13} />
           </a>
         </div>
