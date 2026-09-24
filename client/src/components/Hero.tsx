@@ -108,7 +108,8 @@ export default function Hero() {
                 github.com/Vayala13
               </a>
               <a
-                href="https://github.com/Vayala13"
+                href={`${import.meta.env.BASE_URL}Viviana-Ayala-Resume.pdf`}
+                download="Viviana-Ayala-Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-3 bg-[#FFB7C5]/10 border border-[#FFB7C5]/40 text-[#FFB7C5] font-semibold text-sm rounded hover:bg-[#FFB7C5]/20 hover:border-[#FFB7C5] transition-all duration-150 btn-press flex items-center gap-2"
