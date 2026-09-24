@@ -96,8 +96,10 @@ export default function Hero() {
               Full-Stack Developer
             </p>
             <p className="text-base text-[#475569] max-w-lg mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "240ms" }}>
-              CS Student at UTRGV. I build AI-powered tools, scalable systems,
-              and open-source software that ships — not just demos.
+              CS student at UTRGV and AI Agent Engineering Teaching Assistant.
+              One of nine students hand-picked to lead the inaugural SIG AI
+              pilot (2026). Former Software Engineering Intern at Region One ESC
+              (2025). Volunteering to build automation solutions for MBMT Law Firm.
             </p>
             <div className="flex flex-wrap gap-4 mb-14 animate-fade-in-up" style={{ animationDelay: "320ms" }}>
               <Link href="/projects" className="px-6 py-3 bg-[#FFB7C5] text-[#0a0a0f] font-semibold text-sm rounded hover:bg-[#F5A0B0] transition-colors duration-150 btn-press">
