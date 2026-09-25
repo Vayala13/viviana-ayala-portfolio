@@ -34,7 +34,7 @@ export default function Hero() {
           >
             Viviana
             <br />
-            Ayala<span className="text-aare">.</span>
+            Ayala
           </h1>
 
           <div className="lg:col-span-6 lg:row-start-2 animate-fade-in-up" style={{ animationDelay: "260ms" }}>
