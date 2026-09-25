@@ -8,6 +8,14 @@ import ExploreBoard from "@/components/ExploreBoard";
 
 const techStack = ["TypeScript", "Python", "React", "Node.js", "PostgreSQL", "Docker", "Git", "Linux"];
 
+// Bio as a short timeline — one statement per row
+const highlights = [
+  { when: "Now", text: "AI-Agent Engineering Teaching Assistant for the Department of Computer Science at UTRGV." },
+  { when: "Summer 2026", text: "One of nine students hand-picked to lead the inaugural SIG AI pilot program." },
+  { when: "Summer 2025", text: "Software Engineering Intern at Region One ESC." },
+  { when: "Volunteer", text: "Building automation solutions for MBMT Law Firm." },
+];
+
 const facts = [
   { label: "Status", value: "Open to Opportunities" },
   { label: "Location", value: "United States" },
@@ -38,13 +46,14 @@ export default function Hero() {
           </h1>
 
           <div className="lg:col-span-6 lg:row-start-2 animate-fade-in-up" style={{ animationDelay: "260ms" }}>
-            <p className="text-lg md:text-xl leading-relaxed text-smoke max-w-xl mb-12">
-              Current AI-Agent Engineering Teaching Assistant for the Department
-              of Computer Science at UTRGV.
-              One of nine students hand-picked to lead the inaugural SIG AI
-              pilot (2026). Former Software Engineering Intern at Region One ESC
-              (2025). Volunteering to build automation solutions for MBMT Law Firm.
-            </p>
+            <ul className="max-w-xl mb-12 border-t border-sand">
+              {highlights.map((item) => (
+                <li key={item.when + item.text} className="grid grid-cols-[6.5rem_1fr] gap-4 py-4 border-b border-sand">
+                  <span className="eyebrow pt-1.5">{item.when}</span>
+                  <span className="text-base md:text-lg leading-relaxed text-smoke">{item.text}</span>
+                </li>
+              ))}
+            </ul>
             <div className="flex flex-wrap gap-4">
               <Link href="/projects" className="btn-solid">
                 See My Work
