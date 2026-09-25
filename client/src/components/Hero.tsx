@@ -18,6 +18,7 @@ const highlights = [
 
 const facts = [
   { label: "Status", value: "Open to Opportunities" },
+  { label: "Focus", value: "AI / Full-Stack" },
   { label: "Education", value: "Computer Science @ UTRGV", note: "Minor in Business Management" },
 ];
 
