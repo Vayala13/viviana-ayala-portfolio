@@ -1,10 +1,10 @@
 /**
  * Hero Section — Zurich / Bern Design
- * Oversized name on a visible 12-column grid, beside an abstract
- * Bern old-town scene: tiled roofline, sandstone arcades, the Aare,
- * and the gilded clock tower.
+ * Oversized name on a visible 12-column grid, beside a tram departure
+ * board that links visitors into the rest of the site.
  */
 import { Link } from "wouter";
+import ExploreBoard from "@/components/ExploreBoard";
 
 const techStack = ["TypeScript", "Python", "React", "Node.js", "PostgreSQL", "Docker", "Git", "Linux"];
 
@@ -35,31 +35,9 @@ export default function Hero() {
             Ayala<span className="text-aare">.</span>
           </h1>
 
-          {/* Bern old town, abstracted */}
-          <div
-            aria-hidden="true"
-            className="hidden lg:block lg:col-span-4 relative h-[22rem] animate-fade-in-up"
-            style={{ animationDelay: "300ms" }}
-          >
-            {/* Zytglogge clock */}
-            <div className="absolute left-[8%] top-0 w-14 h-14 rounded-full border border-gold flex items-center justify-center">
-              <div className="w-10 h-10 rounded-full bg-gold" />
-            </div>
-            {/* tiled roofline */}
-            <div
-              className="absolute left-0 right-0 top-[20%] h-[20%] bg-roof"
-              style={{ clipPath: "polygon(8% 100%, 22% 0, 78% 0, 92% 100%)" }}
-            />
-            {/* sandstone facade with arcades */}
-            <div className="absolute left-0 right-0 top-[40%] h-[38%] bg-sandstone-light flex items-end justify-around px-[6%] pt-[6%]">
-              {[0, 1, 2].map((n) => (
-                <div key={n} className="w-[24%] h-full bg-sandstone" style={{ borderRadius: "999px 999px 0 0" }} />
-              ))}
-            </div>
-            {/* the Aare */}
-            <div className="absolute left-0 right-0 bottom-0 h-[22%] bg-aare" />
-            <div className="absolute left-[10%] right-[30%] bottom-[9%] h-px bg-plaster/60" />
-            <div className="absolute left-[40%] right-[8%] bottom-[14%] h-px bg-plaster/40" />
+          {/* Explore board — invites visitors into the rest of the site */}
+          <div className="lg:col-span-4 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+            <ExploreBoard />
           </div>
         </div>
 
