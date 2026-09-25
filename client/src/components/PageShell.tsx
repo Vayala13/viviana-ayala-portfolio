@@ -1,5 +1,5 @@
 /**
- * Shared page chrome — navbar + dark canvas.
+ * Shared page chrome — navbar + plaster canvas.
  */
 import { useEffect } from "react";
 import { useLocation } from "wouter";
@@ -20,9 +20,9 @@ export default function PageShell({
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-[#e2e8f0]">
+    <div className="min-h-screen bg-plaster text-ink">
       <Navbar alwaysSolid={!overlayNav} />
-      <main className={overlayNav ? undefined : "pt-16"}>{children}</main>
+      <main className={overlayNav ? undefined : "pt-20"}>{children}</main>
     </div>
   );
 }

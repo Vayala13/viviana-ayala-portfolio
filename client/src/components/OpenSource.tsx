@@ -1,7 +1,9 @@
 /**
- * Open Source Section — Bioluminescent Grid Design
- * Contributions list with topology line accents and stats grid.
+ * Open Source Section — Plaster & Stone Design
+ * Hairline stats grid and an editorial list of contributions.
  */
+import { ArrowUpRight } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const contributions = [
   {
@@ -47,67 +49,51 @@ const stats = [
 
 export default function OpenSource() {
   return (
-    <section id="opensource" className="py-24 bg-[#0a0a0f] relative overflow-hidden">
-      {/* Subtle grid */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `linear-gradient(rgba(255, 183, 197,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 183, 197,0.5) 1px, transparent 1px)`, backgroundSize: "80px 80px" }} />
-
-      <div className="container relative">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-          <div>
-            <div className="section-label mb-3">05 / Open Source</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#e2e8f0] leading-tight">
-              Open by Default
-            </h2>
-          </div>
-          <p className="text-[#64748b] max-w-xs text-sm leading-relaxed lg:text-right">
-            Every tool I author is public. Code that helps one developer should help all of them.
-          </p>
-        </div>
+    <section id="opensource" className="py-28 lg:py-40 bg-plaster">
+      <div className="container">
+        <SectionHeader
+          index="05"
+          label="Open Source"
+          title="Open by Default"
+          aside="Every tool I author is public. Code that helps one developer should help all of them."
+        />
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-sand mb-24">
           {stats.map((stat) => (
-            <div key={stat.label} className="bg-[#111827] border border-[#1e2d3d] rounded-lg p-5 text-center hover:border-[#FFB7C5]/30 transition-colors duration-200 relative overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFB7C5]/30 to-transparent" />
-              <div className="text-2xl font-bold text-[#FFB7C5] neon-text-glow mb-1">{stat.value}</div>
-              <div className="font-mono text-xs text-[#64748b] tracking-wider uppercase">{stat.label}</div>
+            <div key={stat.label} className="border-r border-b border-sand p-8 lg:p-10">
+              <div className="display text-4xl md:text-5xl text-ink mb-4">{stat.value}</div>
+              <div className="eyebrow">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Contributions */}
-        <div className="space-y-3 pl-4 border-l border-[#1e2d3d] relative">
-          {contributions.map((contrib, i) => (
-            <a key={i} href={contrib.url} target="_blank" rel="noopener noreferrer"
-              className="block bg-[#111827] border border-[#1e2d3d] rounded-lg p-6 hover:border-[#FFB7C5]/40 transition-all duration-200 group relative">
-              {/* Node */}
-              <div className="absolute -left-[1.1rem] top-6 w-2 h-2 rounded-full bg-[#0a0a0f] border border-[#FFB7C5]/40 group-hover:border-[#FFB7C5] transition-colors" />
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="font-mono text-xs text-[#475569]">{contrib.org} /</span>
-                    <span className="font-semibold text-[#e2e8f0] group-hover:text-[#FFB7C5] transition-colors duration-150">{contrib.project}</span>
-                    <span className={`px-2 py-0.5 font-mono text-[10px] tracking-widest uppercase rounded border ${
-                      contrib.type === "Author"
-                        ? "bg-[#FFB7C5]/10 border-[#FFB7C5]/30 text-[#FFB7C5]"
-                        : "bg-[#1e2d3d] border-[#2d3f55] text-[#64748b]"
-                    }`}>{contrib.type}</span>
-                  </div>
-                  <p className="text-sm text-[#64748b] leading-relaxed">{contrib.description}</p>
-                </div>
-                <div className="shrink-0">
-                  <span className="inline-block px-3 py-1 bg-[#0d1117] border border-[#1e2d3d] text-[#475569] font-mono text-xs rounded">{contrib.impact}</span>
-                </div>
+        <div className="border-t border-ink">
+          {contributions.map((contrib) => (
+            <a
+              key={contrib.project}
+              href={contrib.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 border-b border-sand hover:bg-limestone transition-colors duration-500"
+            >
+              <div className="md:col-span-4">
+                <div className="eyebrow mb-2">{contrib.org} · {contrib.type}</div>
+                <h3 className="text-xl font-light tracking-tight text-ink">{contrib.project}</h3>
+              </div>
+              <p className="md:col-span-6 text-sm text-smoke leading-relaxed">{contrib.description}</p>
+              <div className="md:col-span-2 flex md:justify-end items-start gap-2 text-[0.65rem] tracking-[0.2em] uppercase text-ash">
+                {contrib.impact}
+                <ArrowUpRight size={14} strokeWidth={1.25} className="group-hover:text-ink transition-colors duration-300" />
               </div>
             </a>
           ))}
         </div>
 
-        <div className="mt-10 pl-4">
-          <a href="https://github.com/Vayala13" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2 w-fit px-6 py-3 border border-[#1e2d3d] text-[#64748b] font-mono text-sm rounded hover:border-[#FFB7C5]/50 hover:text-[#FFB7C5] transition-all duration-150 btn-press">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            Full activity on GitHub
+        <div className="mt-14">
+          <a href="https://github.com/Vayala13" target="_blank" rel="noopener noreferrer" className="btn-line">
+            Full activity on GitHub ↗
           </a>
         </div>
       </div>

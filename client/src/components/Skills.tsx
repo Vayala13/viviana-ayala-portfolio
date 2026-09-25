@@ -1,8 +1,9 @@
 /**
- * Skills Section — Bioluminescent Grid Design
- * Skills matrix with proficiency bars, topology left-rail, category grouping.
+ * Skills Section — Plaster & Stone Design
+ * Numbered categories with hairline proficiency bars.
  */
 import { useEffect, useRef, useState } from "react";
+import SectionHeader from "@/components/SectionHeader";
 
 const skillCategories = [
   {
@@ -55,13 +56,13 @@ const skillCategories = [
 
 function SkillBar({ name, level, animate }: { name: string; level: number; animate: boolean }) {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between items-center mb-1.5">
-        <span className="font-mono text-sm text-[#e2e8f0]">{name}</span>
-        <span className="font-mono text-xs text-[#FFB7C5]">{level}%</span>
+    <div className="mb-6">
+      <div className="flex justify-between items-baseline mb-2">
+        <span className="text-sm text-ink">{name}</span>
+        <span className="text-xs tabular-nums text-ash">{level}</span>
       </div>
-      <div className="h-px bg-[#1e2d3d] rounded-full overflow-hidden">
-        <div className="h-full skill-bar-fill rounded-full" style={{ width: animate ? `${level}%` : "0%" }} />
+      <div className="h-px bg-sand overflow-hidden">
+        <div className="h-full skill-bar-fill" style={{ width: animate ? `${level}%` : "0%" }} />
       </div>
     </div>
   );
@@ -77,33 +78,21 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" ref={sectionRef} className="py-24 bg-[#0d1117] relative overflow-hidden">
-      {/* Scanline texture */}
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255, 183, 197,0.012) 3px, rgba(255, 183, 197,0.012) 4px)" }} />
+    <section id="skills" ref={sectionRef} className="py-28 lg:py-40 bg-plaster">
+      <div className="container">
+        <SectionHeader
+          index="04"
+          label="Skills"
+          title="Proficiency Map"
+          aside="Rated by hands-on production experience, not certifications."
+        />
 
-      <div className="container relative">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-          <div>
-            <div className="section-label mb-3">04 / Skills</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#e2e8f0] leading-tight">
-              Proficiency Map
-            </h2>
-          </div>
-          <p className="text-[#64748b] max-w-xs text-sm leading-relaxed lg:text-right">
-            Rated by hands-on production experience, not certifications.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((cat) => (
-            <div key={cat.label} className="bg-[#111827] border border-[#1e2d3d] rounded-lg p-6 hover:border-[#FFB7C5]/20 transition-colors duration-200 relative">
-              {/* Topology node */}
-              <div className="absolute -top-1.5 left-6 w-3 h-3 rounded-full bg-[#0d1117] border border-[#FFB7C5]/40 flex items-center justify-center">
-                <div className="w-1 h-1 rounded-full bg-[#FFB7C5]/60" />
-              </div>
-              <div className="flex items-center gap-2 mb-5">
-                <div className="w-0.5 h-4 bg-[#FFB7C5] rounded-full" />
-                <span className="font-mono text-xs tracking-widest uppercase text-[#FFB7C5]">{cat.label}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-20">
+          {skillCategories.map((cat, i) => (
+            <div key={cat.label}>
+              <div className="flex items-baseline gap-4 pb-5 mb-8 border-b border-ink">
+                <span className="font-serif italic text-xl text-ash">{String(i + 1).padStart(2, "0")}</span>
+                <span className="eyebrow text-ink">{cat.label}</span>
               </div>
               {cat.skills.map((skill) => (
                 <SkillBar key={skill.name} {...skill} animate={animated} />

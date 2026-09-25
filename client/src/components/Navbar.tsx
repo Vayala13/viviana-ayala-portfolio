@@ -1,6 +1,7 @@
 /**
- * Navbar — Bioluminescent Grid Design
- * Slim top navigation with pink logo mark and section links.
+ * Navbar — Plaster & Stone Design
+ * Wordmark left, spaced uppercase links right. Transparent over the hero,
+ * plaster with a hairline once scrolled.
  */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
@@ -25,35 +26,25 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = alwaysSolid || scrolled;
+  const solid = alwaysSolid || scrolled || mobileOpen;
 
   const linkClass = (href: string) =>
-    `font-mono text-xs tracking-widest uppercase transition-colors duration-150 ${
-      location === href ? "text-[#FFB7C5]" : "text-[#64748b] hover:text-[#FFB7C5]"
+    `text-[0.68rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
+      location === href ? "text-ink" : "text-ash hover:text-ink"
     }`;
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        solid
-          ? "bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-[#1e2d3d]"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
+        solid ? "bg-plaster/95 backdrop-blur-md border-b border-sand" : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2 group">
-          <span
-            aria-hidden="true"
-            className="flex h-8 w-8 items-center justify-center rounded border border-[#FFB7C5]/40 bg-[#FFB7C5]/10 font-mono text-xs font-bold text-[#FFB7C5]"
-          >
-            VA
-          </span>
-          <span className="font-mono text-sm font-bold text-[#e2e8f0] group-hover:text-[#FFB7C5] transition-colors duration-150">
-            viviana<span className="text-[#FFB7C5]">.</span>ayala
-          </span>
+      <div className="container flex items-center justify-between h-20">
+        <Link href="/" className="text-[0.78rem] tracking-[0.34em] uppercase font-normal text-ink">
+          Viviana Ayala
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link key={link.href} href={link.href} className={linkClass(link.href)}>
               {link.label}
@@ -63,26 +54,23 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
             href="https://github.com/Vayala13"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-4 py-1.5 border border-[#FFB7C5]/40 text-[#FFB7C5] font-mono text-xs tracking-widest uppercase rounded hover:bg-[#FFB7C5]/10 hover:border-[#FFB7C5] transition-all duration-150 btn-press"
+            className="text-[0.68rem] tracking-[0.24em] uppercase text-ink link-quiet"
           >
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
-            GitHub
+            GitHub ↗
           </a>
         </nav>
 
         <button
-          className="md:hidden text-[#64748b] hover:text-[#FFB7C5] transition-colors"
+          className="md:hidden text-ink"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          {mobileOpen ? <X size={20} strokeWidth={1.25} /> : <Menu size={20} strokeWidth={1.25} />}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-[#1e2d3d] px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-plaster border-t border-sand px-6 py-8 flex flex-col gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}

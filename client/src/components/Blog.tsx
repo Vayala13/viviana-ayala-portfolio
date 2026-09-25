@@ -1,8 +1,10 @@
 /**
- * Certifications Section — Bioluminescent Grid Design
+ * Certifications Section — Plaster & Stone Design
+ * Numbered, hairline-ruled index of credentials.
  * Anthropic Academy credentials with verify links.
  */
-import { ArrowUpRight, Award } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const certifications = [
   {
@@ -57,52 +59,40 @@ const certifications = [
 
 export default function Blog() {
   return (
-    <section id="certifications" className="py-24 bg-[#0d1117] relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255, 183, 197,0.01) 3px, rgba(255, 183, 197,0.01) 4px)" }} />
+    <section id="certifications" className="py-28 lg:py-40 bg-plaster">
+      <div className="container">
+        <SectionHeader
+          index="03"
+          label="Certifications"
+          title="Certifications"
+          aside="Anthropic Academy credentials — select any to verify."
+        />
 
-      <div className="container relative">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
-          <div>
-            <div className="section-label mb-3">03 / Certifications</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#e2e8f0] leading-tight">
-              Certifications
-            </h2>
-          </div>
-          <p className="text-[#64748b] max-w-xs text-sm leading-relaxed lg:text-right">
-            Anthropic Academy credentials — click any card to verify.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {certifications.map((cert) => (
+        <div className="border-t border-ink">
+          {certifications.map((cert, i) => (
             <a
               key={cert.href}
               href={cert.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block bg-[#111827] border border-[#1e2d3d] rounded-lg p-6 hover:border-[#FFB7C5]/40 transition-all duration-200 relative overflow-hidden"
+              className="group grid grid-cols-12 items-baseline gap-4 py-8 border-b border-sand hover:bg-limestone transition-colors duration-500"
             >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFB7C5]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-              <div className="flex items-start justify-between gap-3 mb-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded border border-[#FFB7C5]/30 bg-[#FFB7C5]/10 text-[#FFB7C5]">
-                  <Award size={16} />
-                </div>
-                <span className="flex items-center gap-1 text-xs text-[#FFB7C5] font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-                  Verify <ArrowUpRight size={12} />
-                </span>
+              <span className="col-span-2 md:col-span-1 font-serif italic text-2xl text-ash">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div className="col-span-10 md:col-span-6">
+                <h3 className="text-xl md:text-2xl font-light tracking-tight text-ink leading-snug">{cert.title}</h3>
+                <p className="text-sm text-ash mt-1">{cert.issuer}</p>
               </div>
-              <div className="flex flex-wrap gap-1.5 mb-3">
+              <div className="hidden md:flex col-span-3 flex-wrap gap-x-4 gap-y-1">
                 {cert.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-0.5 bg-[#1e2d3d]/60 text-[#475569] font-mono text-[10px] rounded">
-                    {tag}
-                  </span>
+                  <span key={tag} className="text-[0.65rem] tracking-[0.2em] uppercase text-ash">{tag}</span>
                 ))}
               </div>
-              <h3 className="text-lg font-semibold text-[#e2e8f0] group-hover:text-[#FFB7C5] transition-colors duration-150 mb-2 leading-snug">
-                {cert.title}
-              </h3>
-              <p className="text-sm text-[#64748b] mb-4">{cert.issuer}</p>
-              <div className="font-mono text-xs text-[#475569]">{cert.date}</div>
+              <span className="col-start-3 col-span-10 md:col-start-auto md:col-span-2 flex items-center md:justify-end gap-2 text-xs tracking-[0.14em] uppercase text-smoke">
+                {cert.date}
+                <ArrowUpRight size={14} strokeWidth={1.25} className="text-ash group-hover:text-ink transition-colors duration-300" />
+              </span>
             </a>
           ))}
         </div>

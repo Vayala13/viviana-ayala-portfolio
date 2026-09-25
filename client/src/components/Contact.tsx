@@ -1,9 +1,9 @@
 /**
- * Contact / Footer Section — Bioluminescent Grid Design
- * Contact form + resume download + social links + topology footer.
+ * Contact / Footer Section — Plaster & Stone Design
+ * Hairline contact details + underline-only form + quiet footer.
  */
 import { useState } from "react";
-import { Send, Github, Mail, MapPin } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -19,91 +19,66 @@ export default function Contact() {
   };
 
   return (
-    <footer id="contact" className="bg-[#0a0a0f] border-t border-[#1e2d3d] relative overflow-hidden">
-      {/* Grid texture */}
-      <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: `linear-gradient(rgba(255, 183, 197,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 183, 197,0.5) 1px, transparent 1px)`, backgroundSize: "60px 60px" }} />
-      {/* Top glow */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFB7C5]/30 to-transparent" />
+    <footer id="contact" className="bg-plaster">
+      <div className="container pt-28 lg:pt-40 pb-12">
+        <SectionHeader
+          index="06"
+          label="Contact"
+          title="Ready to Build?"
+        />
 
-      <div className="container py-24 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8">
           {/* Left */}
-          <div>
-            <div className="section-label mb-3">06 / Contact</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#e2e8f0] mb-4 leading-tight">
-              Ready to Build?
-            </h2>
-            <p className="text-[#64748b] leading-relaxed mb-8 max-w-md">
+          <div className="lg:col-start-4 lg:col-span-4">
+            <p className="text-lg text-smoke leading-relaxed mb-12">
               Open to internships, research collaborations, and projects worth shipping.
               If you have a hard problem — I want to hear it.
             </p>
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3 text-[#64748b]">
-                <Mail size={14} className="text-[#FFB7C5]" />
-                <span className="font-mono text-sm">viviayalaperez@gmail.com</span>
-              </div>
-              <div className="flex items-center gap-3 text-[#64748b]">
-                <MapPin size={14} className="text-[#FFB7C5]" />
-                <span className="font-mono text-sm">United States · Remote-friendly</span>
-              </div>
-              <div className="flex items-center gap-3 text-[#64748b]">
-                <Github size={14} className="text-[#FFB7C5]" />
-                <a href="https://github.com/Vayala13" target="_blank" rel="noopener noreferrer"
-                  className="font-mono text-sm hover:text-[#FFB7C5] transition-colors">
-                  github.com/Vayala13
-                </a>
-              </div>
-            </div>
+            <dl className="border-t border-sand">
+              {[
+                { label: "Email", value: <a href="mailto:viviayalaperez@gmail.com" className="link-quiet">viviayalaperez@gmail.com</a> },
+                { label: "Based", value: "United States · Remote-friendly" },
+                { label: "GitHub", value: <a href="https://github.com/Vayala13" target="_blank" rel="noopener noreferrer" className="link-quiet">github.com/Vayala13</a> },
+              ].map((row) => (
+                <div key={row.label} className="flex items-baseline justify-between gap-6 py-4 border-b border-sand">
+                  <dt className="eyebrow">{row.label}</dt>
+                  <dd className="text-sm text-ink text-right">{row.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
           {/* Right: Form */}
-          <div>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block font-mono text-[10px] tracking-widest uppercase text-[#64748b] mb-2">Name</label>
-                <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-[#111827] border border-[#1e2d3d] rounded px-4 py-3 text-sm text-[#e2e8f0] placeholder-[#2d3f55] focus:outline-none focus:border-[#FFB7C5]/50 focus:ring-1 focus:ring-[#FFB7C5]/10 transition-colors duration-150 font-mono"
-                  placeholder="Your name" />
-              </div>
-              <div>
-                <label className="block font-mono text-[10px] tracking-widest uppercase text-[#64748b] mb-2">Email</label>
-                <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-[#111827] border border-[#1e2d3d] rounded px-4 py-3 text-sm text-[#e2e8f0] placeholder-[#2d3f55] focus:outline-none focus:border-[#FFB7C5]/50 focus:ring-1 focus:ring-[#FFB7C5]/10 transition-colors duration-150 font-mono"
-                  placeholder="your@email.com" />
-              </div>
-              <div>
-                <label className="block font-mono text-[10px] tracking-widest uppercase text-[#64748b] mb-2">Message</label>
-                <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-[#111827] border border-[#1e2d3d] rounded px-4 py-3 text-sm text-[#e2e8f0] placeholder-[#2d3f55] focus:outline-none focus:border-[#FFB7C5]/50 focus:ring-1 focus:ring-[#FFB7C5]/10 transition-colors duration-150 font-mono resize-none"
-                  placeholder="What are you building?" />
-              </div>
-              <button type="submit"
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#FFB7C5] text-[#0a0a0f] font-semibold text-sm rounded hover:bg-[#F5A0B0] transition-colors duration-150 btn-press">
-                {submitted ? "Message queued — check your email client." : <><Send size={14} />Transmit Message</>}
-              </button>
-            </form>
-          </div>
+          <form onSubmit={handleSubmit} className="lg:col-start-9 lg:col-span-4 space-y-8">
+            <label className="block">
+              <span className="eyebrow">Name</span>
+              <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="field" placeholder="Your name" />
+            </label>
+            <label className="block">
+              <span className="eyebrow">Email</span>
+              <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="field" placeholder="your@email.com" />
+            </label>
+            <label className="block">
+              <span className="eyebrow">Message</span>
+              <textarea required rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="field resize-none" placeholder="What are you building?" />
+            </label>
+            <button type="submit" className="btn-solid w-full justify-center">
+              {submitted ? "Message queued — check your email client" : "Send Message"}
+            </button>
+          </form>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-[#1e2d3d] flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span
-              aria-hidden="true"
-              className="flex h-5 w-5 items-center justify-center rounded border border-[#FFB7C5]/40 bg-[#FFB7C5]/10 font-mono text-[8px] font-bold text-[#FFB7C5]"
-            >
-              VA
-            </span>
-            <span className="font-mono text-xs text-[#475569]">
-              viviana<span className="text-[#FFB7C5]">.</span>ayala — Systems that scale. Code that ships.
-            </span>
-          </div>
-          <span className="font-mono text-xs text-[#2d3f55]">
-            React + TypeScript · {new Date().getFullYear()}
+        <div className="mt-32 pt-8 border-t border-sand flex flex-col md:flex-row items-center justify-between gap-4">
+          <span className="text-[0.68rem] tracking-[0.34em] uppercase text-ink">Viviana Ayala</span>
+          <span className="text-[0.65rem] tracking-[0.2em] uppercase text-ash">
+            Systems that scale. Code that ships. · {new Date().getFullYear()}
           </span>
         </div>
       </div>
     </footer>
   );
 }
-
