@@ -1,7 +1,7 @@
 /**
- * Hero Section — Plaster & Stone Design
- * Full-viewport, oversized light name set against empty plaster.
- * Content left, a quiet hairline index of facts right.
+ * Hero Section — Zurich Contemporary Design
+ * Oversized name on a visible 12-column grid, with a Swiss-poster
+ * composition of color blocks (Le Corbusier palette) to the right.
  */
 import { Link } from "wouter";
 
@@ -18,17 +18,36 @@ const facts = [
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col bg-plaster">
-      <div className="container flex-1 flex flex-col justify-center pt-36 pb-16">
+      {/* Layout-sheet grid guides */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 container grid-guides" />
+
+      <div className="container relative flex-1 flex flex-col justify-center pt-36 pb-16">
         <div className="eyebrow mb-10 animate-fade-in-up">Full-Stack Developer</div>
 
-        <h1
-          className="display text-[18vw] md:text-[13vw] lg:text-[11.5rem] text-ink mb-16 animate-fade-in-up"
-          style={{ animationDelay: "120ms" }}
-        >
-          Viviana
-          <br />
-          <span className="font-serif italic font-light tracking-[-0.02em]">Ayala</span>
-        </h1>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
+          <h1
+            className="lg:col-span-8 display text-[18vw] md:text-[13vw] lg:text-[11.5rem] text-ink animate-fade-in-up"
+            style={{ animationDelay: "120ms" }}
+          >
+            Viviana
+            <br />
+            Ayala<span className="text-swiss">.</span>
+          </h1>
+
+          {/* Swiss-poster composition */}
+          <div
+            aria-hidden="true"
+            className="hidden lg:block lg:col-span-4 relative h-[22rem] animate-fade-in-up"
+            style={{ animationDelay: "300ms" }}
+          >
+            <div className="absolute left-0 bottom-0 w-[62%] h-[58%] bg-oak" />
+            <div className="absolute right-0 top-0 w-[38%] h-[70%] bg-lake" />
+            <div className="absolute left-[18%] top-[6%] w-40 h-40 rounded-full bg-swiss mix-blend-multiply" />
+            <div className="absolute right-[10%] bottom-[8%] w-12 h-12 bg-sun" />
+            <div className="absolute left-0 right-0 top-[42%] h-px bg-steel" />
+            <div className="absolute left-[62%] top-[42%] bottom-0 w-px bg-steel" />
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8">
           <div className="lg:col-span-6 animate-fade-in-up" style={{ animationDelay: "260ms" }}>

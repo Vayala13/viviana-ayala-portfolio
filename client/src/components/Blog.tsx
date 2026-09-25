@@ -77,7 +77,7 @@ export default function Blog() {
               rel="noopener noreferrer"
               className="group grid grid-cols-12 items-baseline gap-4 py-8 border-b border-sand hover:bg-limestone transition-colors duration-500"
             >
-              <span className="col-span-2 md:col-span-1 font-serif italic text-2xl text-ash">
+              <span className="col-span-2 md:col-span-1 text-2xl font-medium tabular-nums tracking-tight text-swiss">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="col-span-10 md:col-span-6">

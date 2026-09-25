@@ -4,9 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   VIVIANA AYALA PORTFOLIO — Plaster & Stone Design System
-   Brand: warm plaster canvas, charcoal ink, limestone surfaces,
-   hairline dividers, generous negative space, square edges.
+   VIVIANA AYALA PORTFOLIO — Zurich Contemporary Design System
+   Brand: pale plaster canvas with a fine concrete grain, black-steel
+   ink, light oak and concrete materials, and a single Swiss red.
+   Strict 12-column grid, flush-left type, circles and color blocks
+   borrowed from Swiss posters and the Pavillon Le Corbusier.
    Fonts: Inter Tight (display/body) + Cormorant Garamond italic (accent)
    ============================================================ */
 
@@ -17,6 +19,15 @@
   --color-ash: #8a847a;
   --color-smoke: #5c5850;
   --color-ink: #1d1c1a;
+
+  /* Material accents */
+  --color-swiss: #d52b1e;
+  --color-oak: #c9a676;
+  --color-concrete: #b9b8b2;
+  --color-concrete-light: #dddcd6;
+  --color-lake: #2f5d7c;
+  --color-sun: #e8b53a;
+  --color-steel: #161616;
 
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
@@ -84,6 +95,17 @@
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
   }
+  /* Fine plaster grain over everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.4 0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
   ::selection {
     background: #1d1c1a;
     color: #f8f6f2;
@@ -148,13 +170,13 @@
     transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
   }
   .btn-solid {
-    background: var(--color-ink);
+    background: var(--color-steel);
     color: var(--color-plaster);
-    border: 1px solid var(--color-ink);
+    border: 1px solid var(--color-steel);
   }
   .btn-solid:hover {
-    background: var(--color-smoke);
-    border-color: var(--color-smoke);
+    background: var(--color-swiss);
+    border-color: var(--color-swiss);
   }
   .btn-line {
     border: 1px solid var(--color-sand);
@@ -176,18 +198,50 @@
     background-size: 100% 1px;
   }
 
-  /* Card / row surfaces */
+  /* Surfaces */
   .stone-card {
     background: var(--color-limestone);
-    transition: background-color 400ms ease;
+    transition: background-color 500ms ease, transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
   }
-  .stone-card:hover {
-    background: #e8e4dc;
+  a.stone-card:hover {
+    background: #e8e2d7;
+    transform: translateY(-3px);
+  }
+
+  /* Swiss cross mark */
+  .swiss-mark {
+    position: relative;
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    background: var(--color-swiss);
+  }
+  .swiss-mark::before,
+  .swiss-mark::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .swiss-mark::before { width: 60%; height: 18%; }
+  .swiss-mark::after { width: 18%; height: 60%; }
+
+  /* Visible 12-column grid guides, like a layout sheet */
+  .grid-guides {
+    background-image: repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent calc(100% / 12 - 1px),
+      rgba(22, 22, 22, 0.05) calc(100% / 12 - 1px),
+      rgba(22, 22, 22, 0.05) calc(100% / 12)
+    );
   }
 
   /* Skill bar */
   .skill-bar-fill {
-    background: var(--color-ink);
+    background: var(--color-steel);
     transition: width 1.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 

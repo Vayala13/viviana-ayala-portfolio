@@ -105,7 +105,7 @@ export default function Projects() {
               className="group border-r border-b border-sand bg-plaster hover:bg-limestone transition-colors duration-500 p-8 lg:p-10 flex flex-col min-h-[22rem]"
             >
               <div className="flex items-start justify-between mb-16">
-                <span className="font-serif italic text-3xl text-ash">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-3xl font-medium tabular-nums tracking-tight text-swiss">{String(i + 1).padStart(2, "0")}</span>
                 <span className="flex items-center gap-3">
                   {project.featured && <span className="eyebrow">Featured</span>}
                   <ArrowUpRight size={16} strokeWidth={1.25} className="text-ash group-hover:text-ink transition-colors duration-300" />
