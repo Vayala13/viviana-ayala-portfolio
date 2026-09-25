@@ -12,7 +12,7 @@ const facts = [
   { label: "Status", value: "Open to Opportunities" },
   { label: "Location", value: "United States" },
   { label: "Focus", value: "AI / Full-Stack" },
-  { label: "Education", value: "CS @ UTRGV" },
+  { label: "Education", value: "Computer Science @ UTRGV", note: "Minor in Business Management" },
   { label: "Repos", value: "18+ Public" },
 ];
 
@@ -23,13 +23,13 @@ export default function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 container grid-guides" />
 
       <div className="container relative flex-1 flex flex-col justify-center pt-36 pb-16">
-        <div className="eyebrow mb-10 animate-fade-in-up">Full-Stack Developer</div>
+        <div className="text-[0.8rem] tracking-[0.22em] uppercase text-smoke mb-10 animate-fade-in-up">Full-Stack Developer</div>
 
         {/* One grid: on phones the order is name → bio → departures → facts,
             so who you are and the résumé button come before the departure board. */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-14 lg:gap-y-16">
           <h1
-            className="lg:col-span-8 lg:row-start-1 lg:self-end display text-[18vw] md:text-[13vw] lg:text-[11.5rem] text-ink animate-fade-in-up"
+            className="lg:col-span-8 lg:row-start-1 lg:self-end display text-[15vw] md:text-[11vw] lg:text-[9.75rem] text-ink animate-fade-in-up"
             style={{ animationDelay: "120ms" }}
           >
             Viviana
@@ -76,7 +76,10 @@ export default function Hero() {
             {facts.map((item) => (
               <div key={item.label} className="flex items-baseline justify-between gap-6 py-4 border-b border-sand">
                 <dt className="eyebrow">{item.label}</dt>
-                <dd className="text-sm text-ink text-right">{item.value}</dd>
+                <dd className="text-sm text-ink text-right">
+                  {item.value}
+                  {item.note && <span className="block text-xs text-ash mt-0.5">{item.note}</span>}
+                </dd>
               </div>
             ))}
           </dl>

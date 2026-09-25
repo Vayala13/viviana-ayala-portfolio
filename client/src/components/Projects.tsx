@@ -85,8 +85,8 @@ export default function Projects() {
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`text-[0.72rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
-                activeTag === tag ? "text-ink border-b border-ink pb-1" : "text-ash hover:text-ink pb-1 border-b border-transparent"
+              className={`text-[0.8rem] tracking-[0.22em] uppercase transition-colors duration-300 ${
+                activeTag === tag ? "text-ink border-b border-ink pb-1" : "text-smoke hover:text-ink pb-1 border-b border-transparent"
               }`}
             >
               {tag}

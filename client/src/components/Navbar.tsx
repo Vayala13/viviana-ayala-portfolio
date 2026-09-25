@@ -29,8 +29,8 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
   const solid = alwaysSolid || scrolled || mobileOpen;
 
   const linkClass = (href: string) =>
-    `text-[0.72rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
-      location === href ? "text-ink" : "text-ash hover:text-ink"
+    `text-[0.8rem] tracking-[0.22em] uppercase transition-colors duration-300 ${
+      location === href ? "text-ink" : "text-smoke hover:text-ink"
     }`;
 
   return (
@@ -54,7 +54,7 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
             href="https://github.com/Vayala13"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.72rem] tracking-[0.24em] uppercase text-ink link-quiet"
+            className="text-[0.8rem] tracking-[0.22em] uppercase text-ink link-quiet"
           >
             GitHub ↗
           </a>
@@ -85,7 +85,7 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
             href="https://github.com/Vayala13"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center min-h-12 text-[0.72rem] tracking-[0.24em] uppercase text-ink"
+            className="flex items-center min-h-12 text-[0.8rem] tracking-[0.22em] uppercase text-ink"
           >
             GitHub ↗
           </a>
