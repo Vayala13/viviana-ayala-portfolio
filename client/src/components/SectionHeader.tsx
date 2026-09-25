@@ -1,5 +1,5 @@
 /**
- * Section header — red Swiss numeral + label, oversized light title, quiet aside.
+ * Section header — Aare-turquoise numeral + label, oversized light title, quiet aside.
  */
 export default function SectionHeader({
   index,
@@ -15,7 +15,7 @@ export default function SectionHeader({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 lg:mb-28">
       <div className="lg:col-span-3 flex items-baseline gap-4">
-        <span className="text-5xl font-medium tabular-nums tracking-tight text-swiss leading-none">{index}</span>
+        <span className="text-5xl font-medium tabular-nums tracking-tight text-aare leading-none">{index}</span>
         <span className="eyebrow">{label}</span>
       </div>
       <div className="lg:col-span-6">

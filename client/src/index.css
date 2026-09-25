@@ -4,11 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================
-   VIVIANA AYALA PORTFOLIO — Zurich Contemporary Design System
-   Brand: pale plaster canvas with a fine concrete grain, black-steel
-   ink, light oak and concrete materials, and a single Swiss red.
-   Strict 12-column grid, flush-left type, circles and color blocks
-   borrowed from Swiss posters and the Pavillon Le Corbusier.
+   VIVIANA AYALA PORTFOLIO — Zurich / Bern Design System
+   Brand: pale plaster canvas with a fine stone grain. Palette taken
+   from understated Zurich dressing (navy wool, camel, charcoal, cream)
+   and Bern's old town (green-grey sandstone arcades, the turquoise
+   Aare, tiled roofs, the gilded Zytglogge). Precise 12-column grid.
    Fonts: Inter Tight (display/body) + Cormorant Garamond italic (accent)
    ============================================================ */
 
@@ -21,13 +21,13 @@
   --color-ink: #1d1c1a;
 
   /* Material accents */
-  --color-swiss: #d52b1e;
-  --color-oak: #c9a676;
-  --color-concrete: #b9b8b2;
-  --color-concrete-light: #dddcd6;
-  --color-lake: #2f5d7c;
-  --color-sun: #e8b53a;
-  --color-steel: #161616;
+  --color-navy: #1f2a3c;
+  --color-camel: #b8926a;
+  --color-sandstone: #a9a790;
+  --color-sandstone-light: #d9d6c6;
+  --color-aare: #3b8a86;
+  --color-roof: #9a4b32;
+  --color-gold: #c49a3a;
 
   --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
@@ -170,13 +170,13 @@
     transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
   }
   .btn-solid {
-    background: var(--color-steel);
+    background: var(--color-navy);
     color: var(--color-plaster);
-    border: 1px solid var(--color-steel);
+    border: 1px solid var(--color-navy);
   }
   .btn-solid:hover {
-    background: var(--color-swiss);
-    border-color: var(--color-swiss);
+    background: var(--color-aare);
+    border-color: var(--color-aare);
   }
   .btn-line {
     border: 1px solid var(--color-sand);
@@ -208,40 +208,20 @@
     transform: translateY(-3px);
   }
 
-  /* Swiss cross mark */
-  .swiss-mark {
-    position: relative;
-    display: inline-block;
-    width: 0.9rem;
-    height: 0.9rem;
-    background: var(--color-swiss);
-  }
-  .swiss-mark::before,
-  .swiss-mark::after {
-    content: "";
-    position: absolute;
-    background: #fff;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .swiss-mark::before { width: 60%; height: 18%; }
-  .swiss-mark::after { width: 18%; height: 60%; }
-
   /* Visible 12-column grid guides, like a layout sheet */
   .grid-guides {
     background-image: repeating-linear-gradient(
       90deg,
       transparent 0,
       transparent calc(100% / 12 - 1px),
-      rgba(22, 22, 22, 0.05) calc(100% / 12 - 1px),
-      rgba(22, 22, 22, 0.05) calc(100% / 12)
+      rgba(31, 42, 60, 0.045) calc(100% / 12 - 1px),
+      rgba(31, 42, 60, 0.045) calc(100% / 12)
     );
   }
 
   /* Skill bar */
   .skill-bar-fill {
-    background: var(--color-steel);
+    background: var(--color-navy);
     transition: width 1.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 

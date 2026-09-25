@@ -1,7 +1,8 @@
 /**
- * Hero Section — Zurich Contemporary Design
- * Oversized name on a visible 12-column grid, with a Swiss-poster
- * composition of color blocks (Le Corbusier palette) to the right.
+ * Hero Section — Zurich / Bern Design
+ * Oversized name on a visible 12-column grid, beside an abstract
+ * Bern old-town scene: tiled roofline, sandstone arcades, the Aare,
+ * and the gilded clock tower.
  */
 import { Link } from "wouter";
 
@@ -31,21 +32,34 @@ export default function Hero() {
           >
             Viviana
             <br />
-            Ayala<span className="text-swiss">.</span>
+            Ayala<span className="text-aare">.</span>
           </h1>
 
-          {/* Swiss-poster composition */}
+          {/* Bern old town, abstracted */}
           <div
             aria-hidden="true"
             className="hidden lg:block lg:col-span-4 relative h-[22rem] animate-fade-in-up"
             style={{ animationDelay: "300ms" }}
           >
-            <div className="absolute left-0 bottom-0 w-[62%] h-[58%] bg-oak" />
-            <div className="absolute right-0 top-0 w-[38%] h-[70%] bg-lake" />
-            <div className="absolute left-[18%] top-[6%] w-40 h-40 rounded-full bg-swiss mix-blend-multiply" />
-            <div className="absolute right-[10%] bottom-[8%] w-12 h-12 bg-sun" />
-            <div className="absolute left-0 right-0 top-[42%] h-px bg-steel" />
-            <div className="absolute left-[62%] top-[42%] bottom-0 w-px bg-steel" />
+            {/* Zytglogge clock */}
+            <div className="absolute left-[8%] top-0 w-14 h-14 rounded-full border border-gold flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gold" />
+            </div>
+            {/* tiled roofline */}
+            <div
+              className="absolute left-0 right-0 top-[20%] h-[20%] bg-roof"
+              style={{ clipPath: "polygon(8% 100%, 22% 0, 78% 0, 92% 100%)" }}
+            />
+            {/* sandstone facade with arcades */}
+            <div className="absolute left-0 right-0 top-[40%] h-[38%] bg-sandstone-light flex items-end justify-around px-[6%] pt-[6%]">
+              {[0, 1, 2].map((n) => (
+                <div key={n} className="w-[24%] h-full bg-sandstone" style={{ borderRadius: "999px 999px 0 0" }} />
+              ))}
+            </div>
+            {/* the Aare */}
+            <div className="absolute left-0 right-0 bottom-0 h-[22%] bg-aare" />
+            <div className="absolute left-[10%] right-[30%] bottom-[9%] h-px bg-plaster/60" />
+            <div className="absolute left-[40%] right-[8%] bottom-[14%] h-px bg-plaster/40" />
           </div>
         </div>
 

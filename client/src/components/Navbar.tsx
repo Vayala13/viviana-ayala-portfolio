@@ -1,5 +1,5 @@
 /**
- * Navbar — Zurich Contemporary Design
+ * Navbar — Zurich / Bern Design
  * Wordmark left, spaced uppercase links right. Transparent over the hero,
  * plaster with a hairline once scrolled.
  */
@@ -40,8 +40,7 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
       }`}
     >
       <div className="container flex items-center justify-between h-20">
-        <Link href="/" className="flex items-center gap-3 text-[0.78rem] tracking-[0.34em] uppercase font-normal text-ink">
-          <span aria-hidden="true" className="swiss-mark" />
+        <Link href="/" className="text-[0.78rem] tracking-[0.34em] uppercase font-normal text-ink">
           Viviana Ayala
         </Link>
 

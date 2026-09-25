@@ -91,7 +91,7 @@ export default function Skills() {
           {skillCategories.map((cat, i) => (
             <div key={cat.label}>
               <div className="flex items-baseline gap-4 pb-5 mb-8 border-b border-ink">
-                <span className="text-xl font-medium tabular-nums tracking-tight text-swiss">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-xl font-medium tabular-nums tracking-tight text-aare">{String(i + 1).padStart(2, "0")}</span>
                 <span className="eyebrow text-ink">{cat.label}</span>
               </div>
               {cat.skills.map((skill) => (
