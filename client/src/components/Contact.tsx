@@ -73,8 +73,8 @@ export default function Contact() {
 
         {/* Bottom bar */}
         <div className="mt-32 pt-8 border-t border-sand flex flex-col md:flex-row items-center justify-between gap-4">
-          <span className="text-[0.68rem] tracking-[0.34em] uppercase text-ink">Viviana Ayala</span>
-          <span className="text-[0.65rem] tracking-[0.2em] uppercase text-ash">
+          <span className="text-[0.72rem] tracking-[0.34em] uppercase text-ink">Viviana Ayala</span>
+          <span className="text-[0.7rem] tracking-[0.2em] uppercase text-ash">
             Systems that scale. Code that ships. · {new Date().getFullYear()}
           </span>
         </div>

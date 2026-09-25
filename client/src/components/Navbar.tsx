@@ -29,7 +29,7 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
   const solid = alwaysSolid || scrolled || mobileOpen;
 
   const linkClass = (href: string) =>
-    `text-[0.68rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
+    `text-[0.72rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
       location === href ? "text-ink" : "text-ash hover:text-ink"
     }`;
 
@@ -54,14 +54,14 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
             href="https://github.com/Vayala13"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.68rem] tracking-[0.24em] uppercase text-ink link-quiet"
+            className="text-[0.72rem] tracking-[0.24em] uppercase text-ink link-quiet"
           >
             GitHub ↗
           </a>
         </nav>
 
         <button
-          className="md:hidden text-ink"
+          className="md:hidden text-ink p-3 -mr-3"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -70,17 +70,25 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-plaster border-t border-sand px-6 py-8 flex flex-col gap-6">
+        <div className="md:hidden bg-plaster border-t border-sand px-6 py-4 flex flex-col">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className={linkClass(link.href)}
+              className={`${linkClass(link.href)} flex items-center min-h-12 border-b border-sand`}
             >
               {link.label}
             </Link>
           ))}
+          <a
+            href="https://github.com/Vayala13"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center min-h-12 text-[0.72rem] tracking-[0.24em] uppercase text-ink"
+          >
+            GitHub ↗
+          </a>
         </div>
       )}
     </header>

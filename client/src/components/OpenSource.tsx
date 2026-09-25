@@ -83,7 +83,7 @@ export default function OpenSource() {
                 <h3 className="text-xl font-light tracking-tight text-ink">{contrib.project}</h3>
               </div>
               <p className="md:col-span-6 text-sm text-smoke leading-relaxed">{contrib.description}</p>
-              <div className="md:col-span-2 flex md:justify-end items-start gap-2 text-[0.65rem] tracking-[0.2em] uppercase text-ash">
+              <div className="md:col-span-2 flex md:justify-end items-start gap-2 text-[0.7rem] tracking-[0.2em] uppercase text-ash">
                 {contrib.impact}
                 <ArrowUpRight size={14} strokeWidth={1.25} className="group-hover:text-ink transition-colors duration-300" />
               </div>

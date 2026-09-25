@@ -85,7 +85,7 @@ export default function Projects() {
             <button
               key={tag}
               onClick={() => setActiveTag(tag)}
-              className={`text-[0.68rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
+              className={`text-[0.72rem] tracking-[0.24em] uppercase transition-colors duration-300 ${
                 activeTag === tag ? "text-ink border-b border-ink pb-1" : "text-ash hover:text-ink pb-1 border-b border-transparent"
               }`}
             >
@@ -114,9 +114,9 @@ export default function Projects() {
               <h3 className="text-2xl font-light tracking-tight text-ink mb-4 leading-snug">{project.name}</h3>
               <p className="text-sm text-smoke leading-relaxed mb-8 flex-1">{project.description}</p>
               <div className="flex flex-wrap gap-x-4 gap-y-1 pt-5 border-t border-sand">
-                <span className="text-[0.65rem] tracking-[0.2em] uppercase text-ink">{project.language}</span>
+                <span className="text-[0.7rem] tracking-[0.2em] uppercase text-ink">{project.language}</span>
                 {project.tags.filter((t) => t !== project.language).slice(0, 2).map((tag) => (
-                  <span key={tag} className="text-[0.65rem] tracking-[0.2em] uppercase text-ash">{tag}</span>
+                  <span key={tag} className="text-[0.7rem] tracking-[0.2em] uppercase text-ash">{tag}</span>
                 ))}
               </div>
             </a>

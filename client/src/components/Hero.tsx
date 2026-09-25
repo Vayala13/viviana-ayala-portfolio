@@ -25,9 +25,11 @@ export default function Hero() {
       <div className="container relative flex-1 flex flex-col justify-center pt-36 pb-16">
         <div className="eyebrow mb-10 animate-fade-in-up">Full-Stack Developer</div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
+        {/* One grid: on phones the order is name → bio → departures → facts,
+            so who you are and the résumé button come before the departure board. */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-14 lg:gap-y-16">
           <h1
-            className="lg:col-span-8 display text-[18vw] md:text-[13vw] lg:text-[11.5rem] text-ink animate-fade-in-up"
+            className="lg:col-span-8 lg:row-start-1 lg:self-end display text-[18vw] md:text-[13vw] lg:text-[11.5rem] text-ink animate-fade-in-up"
             style={{ animationDelay: "120ms" }}
           >
             Viviana
@@ -35,14 +37,7 @@ export default function Hero() {
             Ayala<span className="text-aare">.</span>
           </h1>
 
-          {/* Explore board — invites visitors into the rest of the site */}
-          <div className="lg:col-span-4 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
-            <ExploreBoard />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-8">
-          <div className="lg:col-span-6 animate-fade-in-up" style={{ animationDelay: "260ms" }}>
+          <div className="lg:col-span-6 lg:row-start-2 animate-fade-in-up" style={{ animationDelay: "260ms" }}>
             <p className="text-lg md:text-xl leading-relaxed text-smoke max-w-xl mb-12">
               Current AI-Agent Engineering Teaching Assistant for the Department
               of Computer Science at UTRGV.
@@ -66,8 +61,16 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Explore board — invites visitors into the rest of the site */}
+          <div
+            className="lg:col-start-9 lg:col-span-4 lg:row-start-1 lg:self-end animate-fade-in-up"
+            style={{ animationDelay: "300ms" }}
+          >
+            <ExploreBoard />
+          </div>
+
           <dl
-            className="lg:col-start-9 lg:col-span-4 border-t border-sand animate-fade-in-up"
+            className="lg:col-start-9 lg:col-span-4 lg:row-start-2 border-t border-sand animate-fade-in-up"
             style={{ animationDelay: "400ms" }}
           >
             {facts.map((item) => (

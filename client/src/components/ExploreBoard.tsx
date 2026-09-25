@@ -10,15 +10,16 @@ type Stop = {
   label: string;
   detail: string;
   href: string;
+  /** Badge background + number color (dark numbers on light badges, like real tram signs) */
   color: string;
 };
 
-const stops: Stop[] = [
-  { line: 2, label: "Projects", detail: "6 systems shipped", href: "/projects", color: "bg-aare" },
-  { line: 3, label: "Certifications", detail: "6 credentials", href: "/certifications", color: "bg-roof" },
-  { line: 4, label: "Skills", detail: "5 disciplines", href: "/skills", color: "bg-gold" },
-  { line: 5, label: "Open Source", detail: "4 public tools", href: "/open-source", color: "bg-navy" },
-  { line: 6, label: "Contact", detail: "Say hello", href: "/contact", color: "bg-sandstone" },
+export const stops: Stop[] = [
+  { line: 2, label: "Projects", detail: "6 systems shipped", href: "/projects", color: "bg-aare text-plaster" },
+  { line: 3, label: "Certifications", detail: "6 credentials", href: "/certifications", color: "bg-roof text-plaster" },
+  { line: 4, label: "Skills", detail: "5 disciplines", href: "/skills", color: "bg-gold text-ink" },
+  { line: 5, label: "Open Source", detail: "4 public tools", href: "/open-source", color: "bg-navy text-plaster" },
+  { line: 6, label: "Contact", detail: "Say hello", href: "/contact", color: "bg-sandstone text-ink" },
 ];
 
 export default function ExploreBoard() {
@@ -36,7 +37,7 @@ export default function ExploreBoard() {
               className="group flex items-center gap-4 py-4 border-b border-sand hover:bg-limestone transition-colors duration-300"
             >
               <span
-                className={`${stop.color} w-9 h-7 shrink-0 rounded-md flex items-center justify-center text-sm font-medium tabular-nums text-plaster`}
+                className={`${stop.color} w-9 h-7 shrink-0 rounded-md flex items-center justify-center text-sm font-medium tabular-nums`}
               >
                 {stop.line}
               </span>

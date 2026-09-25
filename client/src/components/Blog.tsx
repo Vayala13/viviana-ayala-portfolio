@@ -86,7 +86,7 @@ export default function Blog() {
               </div>
               <div className="hidden md:flex col-span-3 flex-wrap gap-x-4 gap-y-1">
                 {cert.tags.map((tag) => (
-                  <span key={tag} className="text-[0.65rem] tracking-[0.2em] uppercase text-ash">{tag}</span>
+                  <span key={tag} className="text-[0.7rem] tracking-[0.2em] uppercase text-ash">{tag}</span>
                 ))}
               </div>
               <span className="col-start-3 col-span-10 md:col-start-auto md:col-span-2 flex items-center md:justify-end gap-2 text-xs tracking-[0.14em] uppercase text-smoke">
