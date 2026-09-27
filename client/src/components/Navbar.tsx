@@ -41,7 +41,7 @@ export default function Navbar({ alwaysSolid = false }: { alwaysSolid?: boolean 
     >
       <div className="container flex items-center justify-between h-20">
         <Link href="/" className="text-[0.78rem] tracking-[0.34em] uppercase font-normal text-ink">
-          Viviana Ayala
+          Home
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
